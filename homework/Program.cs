@@ -7,15 +7,35 @@
 
 string[] inputArr = {"hello", "2", "world", "-)"};
 
-void FindTreeLen(string[] arr)
+string[] FindTreeLen(string[] arr)
 {
+    int count = 0;
+    string[] resultArray = new string[0];
     for (int i = 0; i < arr.Length; i++)
     {
         if(arr[i].Length < 3)
         {
-            System.Console.WriteLine(arr[i]);
+            count++;
+            resultArray = AddSting(resultArray, arr[i], count);
         }
     }
+    return resultArray;
 }
 
-FindTreeLen(inputArr);
+string[] AddSting(string[] resArr, string str, int cnt)
+{
+    string[] secondArray = new string[resArr.Length + 1];
+    for (int i = 0; i < resArr.Length; i++)
+    {
+        secondArray[i] = resArr[i];
+    }
+
+    secondArray[secondArray.Length - 1] = str;
+    return secondArray;
+}
+
+
+foreach (var item in FindTreeLen(inputArr))
+{
+    System.Console.WriteLine(item);
+}
