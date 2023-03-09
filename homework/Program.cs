@@ -3,9 +3,6 @@
 // Первоначальный массив можно ввести с клавиатуры, 
 // либо задать на старте выполнения алгоритма.
 
-// ["hello", "2", "world", "-)"] -> ["2", "-)"]
-
-string[] inputArr = {"hello", "2", "world", "-)"};
 
 string[] FindTreeLen(string[] arr)
 {
@@ -13,7 +10,7 @@ string[] FindTreeLen(string[] arr)
     string[] resultArray = new string[0];
     for (int i = 0; i < arr.Length; i++)
     {
-        if(arr[i].Length < 3)
+        if (arr[i].Length < 3)
         {
             count++;
             resultArray = AddSting(resultArray, arr[i], count);
@@ -35,7 +32,14 @@ string[] AddSting(string[] resArr, string str, int cnt)
 }
 
 
-foreach (var item in FindTreeLen(inputArr))
+void Main(string[] arr)
 {
-    System.Console.WriteLine(item);
+    foreach (var item in FindTreeLen(arr))
+    {
+        Console.WriteLine(item);
+    }
 }
+
+
+string[] inputArr = { "1234", "1567", "-2", "computer science", "", "12", "hg" };
+Main(inputArr);
